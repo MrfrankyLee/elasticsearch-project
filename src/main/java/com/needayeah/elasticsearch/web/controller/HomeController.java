@@ -16,13 +16,26 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("name","李晓乐");
         return "index";
     }
 
-    @RequestMapping(value = "/get",method = RequestMethod.GET)
-    @ResponseBody
-    public ApiResponse get(){
-        return ApiResponse.ofMeaasge(200,"成功了");
+    @GetMapping("/404")
+    public String notFoundPage(Model model){
+        return "404";
+    }
+
+    @GetMapping("/403")
+    public String accessError(Model model){
+        return "403";
+    }
+
+    @GetMapping("/500")
+    public String internalError(Model model){
+        return "500";
+    }
+
+    @GetMapping("/logout")
+    public String logout(Model model){
+        return "logout";
     }
 }
