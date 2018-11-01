@@ -1,3 +1,4 @@
+/*
 package com.needayeah.elasticsearch.config;
 
 import org.springframework.beans.BeansException;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -26,19 +28,23 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter implements Application
         this.applicationContext = applicationContext;
     }
 
-    /**
+    */
+/**
      * 静态资源加载配置
      * @param registry
-     */
+     *//*
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 
-    /**
+    */
+/**
      * 模板资源解析器
      * @return
-     */
+     *//*
+
     @Bean
     @ConfigurationProperties(prefix = "spring.thymeleaf")
     public SpringResourceTemplateResolver templateResolver() {
@@ -51,9 +57,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter implements Application
         return templateResolver;
     }
 
-    /**
+    */
+/**
      * Thymeleaf标准方言解释器
-     */
+     *//*
+
     @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
@@ -62,14 +70,16 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter implements Application
         templateEngine.setEnableSpringELCompiler(true);
 
         //支持SpringSecurity方言
-       /* SpringSecurityDialect securityDialect = new SpringSecurityDialect();
-        templateEngine.addDialect(securityDialect);*/
+        SpringSecurityDialect securityDialect = new SpringSecurityDialect();
+        templateEngine.addDialect(securityDialect);
         return templateEngine;
     }
 
-    /**
+    */
+/**
      * 视图解析器
-     */
+     *//*
+
     @Bean
     public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
@@ -77,3 +87,4 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter implements Application
         return viewResolver;
     }
 }
+*/

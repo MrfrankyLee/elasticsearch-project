@@ -15,9 +15,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity
 public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
-    /**
-     * HTTP 权限控制
-     */
+   // HTTP 权限控制
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //资源访问权限
@@ -43,15 +43,16 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /**
-     * 自定义认证策略
-     */
+    // 自定义认证策略
+
+
     @Autowired
     public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
         // 从内存配置认证信息
-        /*auth.inMemoryAuthentication()
-                .passwordEncoder(passwordEncoder())
-                .withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN").and();*/
+  /*auth.inMemoryAuthentication()
+              .passwordEncoder(passwordEncoder())
+                .withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN").and();
+*/
         auth.authenticationProvider(authProvider()).eraseCredentials(true);
     }
 
